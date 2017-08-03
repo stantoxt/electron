@@ -9,9 +9,9 @@
 
 #include "base/compiler_specific.h"
 #include "base/macros.h"
+#include "base/path_service.h"
 #include "brightray/browser/brightray_paths.h"
 #include "content/public/browser/browser_main_parts.h"
-#include "base/path_service.h"
 
 #if defined(TOOLKIT_VIEWS)
 namespace brightray {
