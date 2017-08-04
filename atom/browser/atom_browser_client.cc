@@ -333,8 +333,7 @@ void AtomBrowserClient::ResourceDispatcherHostCreated() {
 }
 
 bool AtomBrowserClient::CanCreateWindow(
-    int opener_render_process_id,
-    int opener_render_frame_id,
+    content::RenderFrameHost* opener,
     const GURL& opener_url,
     const GURL& opener_top_level_frame_url,
     const GURL& source_origin,
@@ -348,7 +347,6 @@ bool AtomBrowserClient::CanCreateWindow(
     const scoped_refptr<content::ResourceRequestBodyImpl>& body,
     bool user_gesture,
     bool opener_suppressed,
-    content::ResourceContext* context,
     bool* no_javascript_access) {
   DCHECK_CURRENTLY_ON(content::BrowserThread::IO);
 
