@@ -38,10 +38,9 @@ def main():
   libcc_static_library_path = args.libcc_static_library_path
 
   # Redirect to use local libchromiumcontent build.
-  if args.build_libchromiumcontent or args.debug_libchromiumcontent:
+  if args.build_release_libcc or args.build_debug_libcc:
     build_libchromiumcontent(args.verbose, args.target_arch, defines,
-                             args.debug_libchromiumcontent,
-                             args.force_update_libchromiumcontent)
+                             args.build_debug_libcc, args.update_libcc)
     dist_dir = os.path.join(VENDOR_DIR, 'libchromiumcontent', 'dist', 'main')
     libcc_source_path = os.path.join(dist_dir, 'src')
     libcc_shared_library_path = os.path.join(dist_dir, 'shared_library')
@@ -91,11 +90,11 @@ def parse_args():
   parser.add_argument('--disable_clang', action='store_true',
                       help='Use compilers other than clang for building')
   build_libcc = parser.add_mutually_exclusive_group()
-  build_libcc.add_argument('--build_libchromiumcontent', action='store_true',
-                           help='Build local version of libchromiumcontent')
-  build_libcc.add_argument('--debug_libchromiumcontent', action='store_true',
-                           help='Debug local version of libchromiumcontent')
-  parser.add_argument('--force_update_libchromiumcontent', default=False,
+  build_libcc.add_argument('--build_release_libcc', action='store_true',
+                           help='Build release version of libchromiumcontent')
+  build_libcc.add_argument('--build_debug_libcc', action='store_true',
+                           help='Build debug version of libchromiumcontent')
+  parser.add_argument('--update_libcc', default=False,
                       action='store_true', help=('force gclient invocation to '
                       'update libchromiumcontent'))
   parser.add_argument('--libcc_source_path', required=False,
