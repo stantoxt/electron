@@ -161,10 +161,10 @@ To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `lib
   ```bash
   $ cp vendor/libchromiumcontent/.gclient .
   ```
-  5. Pass the `--build_libchromiumcontent` switch to `bootstrap.py` script:
+  5. Pass the `--build_release_libcc` switch to `bootstrap.py` script:
 
   ```bash
-  $ ./script/bootstrap.py -v --build_libchromiumcontent
+  $ ./script/bootstrap.py -v --build_release_libcc
   ```
 
 Note that by default the `shared_library` configuration is not built, so you can
@@ -186,7 +186,7 @@ in `<path>/bin/`.
 For example if you installed `clang` under `/user/local/bin/clang`:
 
 ```bash
-$ ./script/bootstrap.py -v --build_libchromiumcontent --clang_dir /usr/local
+$ ./script/bootstrap.py -v --build_release_libcc --clang_dir /usr/local
 $ ./script/build.py -c R
 ```
 
@@ -199,7 +199,7 @@ variables to the ones you want.
 For example building with GCC toolchain:
 
 ```bash
-$ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_libchromiumcontent --disable_clang
+$ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_release_libcc --disable_clang
 $ ./script/build.py -c R
 ```
 
