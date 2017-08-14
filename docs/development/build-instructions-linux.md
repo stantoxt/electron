@@ -156,12 +156,7 @@ To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `lib
   ```bash
   $ git submodule update --init --recursive
   ```
-  4. Copy the .gclient config file
-
-  ```bash
-  $ cp vendor/libchromiumcontent/.gclient .
-  ```
-  5. Pass the `--build_release_libcc` switch to `bootstrap.py` script:
+  4. Pass the `--build_release_libcc` switch to `bootstrap.py` script:
 
   ```bash
   $ ./script/bootstrap.py -v --build_release_libcc
