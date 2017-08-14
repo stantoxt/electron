@@ -6,13 +6,13 @@ import sys
 
 from lib.config import enable_verbose_mode, get_target_arch
 from lib.util import execute_stdout
-import bootstrap
+from bootstrap import get_libchromiumcontent_commit 
 
 
 SOURCE_ROOT = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 LIBCC_DIR = os.path.join(SOURCE_ROOT, 'vendor', 'libchromiumcontent')
 GCLIENT_DONE_MARKER = os.path.join(SOURCE_ROOT, '.gclient_done')
-LIBCC_COMMIT = bootstrap.get_libchromiumcontent_commit()
+LIBCC_COMMIT = get_libchromiumcontent_commit()
 
 
 def update_gclient_done_marker():
